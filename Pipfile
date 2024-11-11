@@ -11,6 +11,9 @@ python-dotenv = "*"
 sqlalchemy = "*"
 alembic = "*"
 psycopg2 = "*"
+class = "*"
+fastapi = "*"
+uvicorn = "*"
 
 [dev-packages]
 
