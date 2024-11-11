@@ -7,6 +7,10 @@ name = "pypi"
 flake8 = "*"
 autoflake = "*"
 pre-commit = "*"
+python-dotenv = "*"
+sqlalchemy = "*"
+alembic = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
