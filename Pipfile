@@ -14,6 +14,8 @@ psycopg2 = "*"
 class = "*"
 fastapi = "*"
 uvicorn = "*"
+pydantic = "*"
+werkzeug = "*"
 
 [dev-packages]
 
