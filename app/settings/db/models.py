@@ -8,8 +8,8 @@ from sqlalchemy.orm import relationship
 Base = declarative_base()
 
 
-Subscriptions = db.Table(
-    'Subscriptions', Base.metadata,
+Ssubscriptions = db.Table(
+    'Ssubscriptions', Base.metadata,
     db.Column('user_id', db.BigInteger, db.ForeignKey('Users.id'), primary_key=True),
     db.Column('task_id', db.BigInteger, db.ForeignKey('Tasks.id'), primary_key=True)
 )
@@ -25,7 +25,7 @@ class Tasks(Base):
     created_at = db.Column(TIMESTAMP, default=datetime.utcnow())
     creator_id = db.Column(db.BigInteger, db.ForeignKey("Users.id"))  # Внешний ключ, связывающий задачу с пользователем
     creator = relationship("Users", back_populates="tasks")  # Отношение к пользователю
-    subscribers = relationship("Users", secondary=Subscriptions,
+    subscribers = relationship("Users", secondary=Ssubscriptions,
                                back_populates="subscribed_tasks")  # Связь с подписчиками
 
 
@@ -39,5 +39,5 @@ class Users(Base):
     email = db.Column("email", db.String)
     created_at = db.Column(TIMESTAMP, default=datetime.utcnow())
     tasks = relationship("Tasks", back_populates="creator")
-    subscribed_tasks = relationship("Tasks", secondary=Subscriptions,
+    subscribed_tasks = relationship("Tasks", secondary=Ssubscriptions,
                                     back_populates="subscribers")  # Связь с подписками пользователя на задачи
