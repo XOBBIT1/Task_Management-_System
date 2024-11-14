@@ -1,9 +1,12 @@
 from datetime import datetime
+from sqlalchemy import Enum
 
 from sqlalchemy import TIMESTAMP
 from sqlalchemy.ext.declarative import declarative_base
 import sqlalchemy as db
 from sqlalchemy.orm import relationship
+
+from enums.tasks import TaskStatus
 
 Base = declarative_base()
 
@@ -21,7 +24,7 @@ class Tasks(Base):
     id = db.Column(db.Integer, primary_key=True)
     task_name = db.Column("task_name", db.String)
     task_descriptions = db.Column("task_descriptions", db.String)
-    status = db.Column("status", db.String)
+    status = db.Column(Enum(TaskStatus, native_enum=False), default=TaskStatus.NEW, nullable=False)
     created_at = db.Column(TIMESTAMP, default=datetime.utcnow())
     creator_id = db.Column(db.BigInteger, db.ForeignKey("Users.id"))  # Внешний ключ, связывающий задачу с пользователем
     creator = relationship("Users", back_populates="tasks")  # Отношение к пользователю

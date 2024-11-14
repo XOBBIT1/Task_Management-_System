@@ -25,6 +25,10 @@ class GetUsersUsernameResponseSchema(BaseModel):
     users: List[GetUserResponseSchema]
 
 
+class GetSubscribersResponseSchema(BaseModel):
+    users: List[BaseUserSchema]
+
+
 class UserUpdateRequestSchema(BaseModel):
     name: Optional[str] = None
     username: Optional[str] = None

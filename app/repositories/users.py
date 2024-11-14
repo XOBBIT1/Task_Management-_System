@@ -10,9 +10,10 @@ from werkzeug.security import generate_password_hash
 
 from schemas.users import UserUpdateRequestSchema
 
+from settings.db.models import Ssubscriptions
+
 
 class UsersRepository:
-    model = str
 
     def __init__(self):
         self.db_session_manager = DBSessionManager()
@@ -36,6 +37,36 @@ class UsersRepository:
             except Exception as e:
                 logging.info(f"Failed to create user: {e}")
                 await session.rollback()  # Откат при ошибке
+
+    async def get_all_user_tasks(self, repository, user_id: int):
+        async with self.db_session_manager.get_session() as session:
+            try:
+                query = select(Ssubscriptions.c.task_id).filter_by(user_id=user_id)
+                result = await session.execute(query)
+                subscribers = result.scalars().all()
+                tasks = []
+                for subscriber in subscribers:
+                    task = await repository.get_task_by_id(subscriber)
+                    tasks.append({
+                        "task_name": task.task_name,
+                        "task_descriptions": task.task_descriptions,
+                        "status": task.status
+                    })
+                return tasks
+            except NoResultFound as ex:
+                logging.info(f"User not found: {ex}")
+                return None
+
+    async def get_user_by_id(self, user_id: int):
+        async with self.db_session_manager.get_session() as session:
+            try:
+                query = select(Users).filter_by(id=user_id)
+                result = await session.execute(query)  # Асинхронный запрос
+                user = result.scalars().first()  # Получаем первый результат
+                return user
+            except NoResultFound as ex:
+                logging.info(f"User not found: {ex}")
+                return None
 
     async def get_user_by_username(self, username: str):
         async with self.db_session_manager.get_session() as session:
@@ -70,12 +101,12 @@ class UsersRepository:
                 logging.info(f"User not found: {ex}")
                 return None
 
-    async def update_user(self, username: str, user_update_data: UserUpdateRequestSchema):
+    async def update_user(self, user_id: int, user_update_data: UserUpdateRequestSchema):
         async with self.db_session_manager.get_session() as session:
             try:
-                user = await self.get_user_by_username(username)
+                user = await self.get_user_by_id(user_id)
                 if not user:
-                    logging.info(f"User with username: {username} not found.")
+                    logging.info(f"User with username: {user_id} not found.")
                     return None
                 if user_update_data.name is not None:
                     user.name = user_update_data.name
@@ -89,15 +120,15 @@ class UsersRepository:
                 logging.error(f"Error updating user: {ex}")
                 return None
 
-    async def delete_user(self, username: str):
+    async def delete_user(self, user_id: int):
         async with self.db_session_manager.get_session() as session:
             try:
-                query = select(Users).filter_by(username=username)
+                query = select(Users).filter_by(id=user_id)
                 result = await session.execute(query)
                 user = result.scalars().first()
 
                 if not user:
-                    logging.info(f"User with username: {username} not found.")
+                    logging.info(f"User with username: {user_id} not found.")
                     return None
                 await session.delete(user)
                 await session.commit()
