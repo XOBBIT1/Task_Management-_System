@@ -1,0 +1,27 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flake8 = "*"
+autoflake = "*"
+pre-commit = "*"
+python-dotenv = "*"
+sqlalchemy = "*"
+alembic = "*"
+psycopg2 = "*"
+class = "*"
+fastapi = "*"
+uvicorn = "*"
+pydantic = "*"
+werkzeug = "*"
+passlib = "*"
+pyjwt = "*"
+bcrypt = "*"
+python-multipart = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
