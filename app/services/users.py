@@ -1,20 +1,10 @@
 from fastapi import HTTPException
 
-from repositories.users import UsersRepository
+from app.repositories.users import UsersRepository
 
-from schemas.users import UserUpdateRequestSchema
+from app.schemas.users import UserUpdateRequestSchema
 
-from repositories.tasks import TasksRepository
-
-
-async def create_user_service(person) -> dict:
-    user_username = await UsersRepository().get_user_by_username(username=person.username)
-    user_email = await UsersRepository().get_user_by_email(email=person.email)
-    if user_email or user_username:
-        raise HTTPException(
-            status_code=409, detail="User with such username already exists"
-        )
-    return await UsersRepository().create_user(instance=person.dict())
+from app.repositories.tasks import TasksRepository
 
 
 async def get_by_username_service(username):

@@ -1,4 +1,4 @@
-from settings import config_settings
+from app.settings import config_settings
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 

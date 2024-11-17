@@ -2,12 +2,12 @@ import typing as tp
 
 from fastapi import APIRouter, HTTPException
 
-from services import tasks
-from schemas.tasks import (CreateTasksSchema, CreateTasksResponseSchema,
-                           GetTaskResponseSchema, GetTasksResponseSchema, SubscribeOnTasksSchema,
-                           TaskUpdateRequestSchema, ChangeTaskStatusSchema)
+from app.services import tasks
+from app.schemas.tasks import (CreateTasksSchema, CreateTasksResponseSchema,
+                               GetTaskResponseSchema, GetTasksResponseSchema, SubscribeOnTasksSchema,
+                               TaskUpdateRequestSchema, ChangeTaskStatusSchema, ChangeTaskPrioritySchema)
 
-from schemas.users import GetSubscribersResponseSchema
+from app.schemas.users import GetSubscribersResponseSchema
 
 tasks_routes = APIRouter()
 
@@ -61,6 +61,15 @@ async def patch_task_endpoint(task_id: int, task_update: TaskUpdateRequestSchema
                     response_model=GetTaskResponseSchema)
 async def change_task_status_endpoint(task_id: int, task_update: ChangeTaskStatusSchema):
     updated_task = await tasks.change_task_status_service(task_id, task_update)
+    if not updated_task:
+        raise HTTPException(status_code=404, detail="Task not found or update failed")
+    return updated_task
+
+
+@tasks_routes.patch("/change_task_priority/{task_id}/",
+                    response_model=GetTaskResponseSchema)
+async def change_task_priority_endpoint(task_id: int, task_update: ChangeTaskPrioritySchema):
+    updated_task = await tasks.change_task_priority_service(task_id, task_update)
     if not updated_task:
         raise HTTPException(status_code=404, detail="Task not found or update failed")
     return updated_task

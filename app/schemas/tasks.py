@@ -2,13 +2,14 @@ from typing import List, Optional
 
 from pydantic import BaseModel
 
-from enums.tasks import TaskStatus
+from app.enums.tasks import TaskStatus, TaskPriority
 
 
 class BaseTasksSchema(BaseModel):
     task_name: str
     task_descriptions: str
     status: TaskStatus
+    priority: TaskPriority
 
 
 class CreateTasksSchema(BaseTasksSchema):
@@ -46,3 +47,7 @@ class TaskUpdateRequestSchema(BaseModel):
 
 class ChangeTaskStatusSchema(BaseModel):
     status: TaskStatus
+
+
+class ChangeTaskPrioritySchema(BaseModel):
+    priority: TaskPriority

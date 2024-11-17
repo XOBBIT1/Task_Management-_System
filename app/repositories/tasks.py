@@ -5,10 +5,10 @@ from sqlalchemy import insert
 from sqlalchemy.future import select
 from sqlalchemy.exc import NoResultFound
 
-from settings.db.models import Tasks, Ssubscriptions
-from settings.db.session_to_postgres import DBSessionManager
+from app.settings.db.models import Tasks, Ssubscriptions
+from app.settings.db.session_to_postgres import DBSessionManager
 
-from schemas.tasks import TaskUpdateRequestSchema
+from app.schemas.tasks import TaskUpdateRequestSchema
 
 
 class TasksRepository:
@@ -129,6 +129,23 @@ class TasksRepository:
                     return None
                 if task_update_data.status is not None:
                     task.status = task_update_data.status
+                session.add(task)
+                await session.commit()
+                await session.refresh(task)
+                return task
+            except Exception as ex:
+                logging.error(f"Error updating user: {ex}")
+                return None
+
+    async def change_task_priority(self, task_id: int, task_update_data: TaskUpdateRequestSchema):
+        async with self.db_session_manager.get_session() as session:
+            try:
+                task = await self.get_task_by_id(task_id)
+                if not task:
+                    logging.info(f"Task with id: {task_id} not found.")
+                    return None
+                if task_update_data.priority is not None:
+                    task.priority = task_update_data.priority
                 session.add(task)
                 await session.commit()
                 await session.refresh(task)

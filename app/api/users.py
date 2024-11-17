@@ -2,19 +2,12 @@ import typing as tp
 
 from fastapi import APIRouter, HTTPException
 
-from services import users
-from schemas.users import (CreateUserSchema, CreateUserResponseSchema, GetUserResponseSchema,
-                           GetUsersUsernameResponseSchema, UserUpdateRequestSchema)
+from app.services import users
+from app.schemas.users import (GetUserResponseSchema,
+                               GetUsersUsernameResponseSchema, UserUpdateRequestSchema)
 
-from schemas.tasks import GetUerTasksResponseSchema
-
+from app.schemas.tasks import GetUerTasksResponseSchema
 user_routes = APIRouter()
-
-
-@user_routes.post("/register/", status_code=201, response_model=CreateUserResponseSchema)
-async def register_user_endpoint(data: CreateUserSchema) -> tp.Dict[str, tp.Any]:
-    user = await users.create_user_service(person=data)
-    return user
 
 
 @user_routes.get("/get_user_tasks/", status_code=201,

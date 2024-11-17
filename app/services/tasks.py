@@ -1,8 +1,8 @@
 from fastapi import HTTPException
 
-from repositories.tasks import TasksRepository
-from repositories.users import UsersRepository
-from schemas.tasks import TaskUpdateRequestSchema
+from app.repositories.tasks import TasksRepository
+from app.repositories.users import UsersRepository
+from app.schemas.tasks import TaskUpdateRequestSchema
 
 
 async def create_task_service(task) -> dict:
@@ -78,6 +78,16 @@ async def change_task_status_service(task_id, task_update_data: TaskUpdateReques
     task = await TasksRepository().get_task_by_id(task_id=task_id)
     if task:
         return await TasksRepository().change_task_status(task_id, task_update_data)
+    else:
+        raise HTTPException(
+            status_code=409, detail=f"Task with such id:{task_id} doesn't exist"
+        )
+
+
+async def change_task_priority_service(task_id, task_update_data: TaskUpdateRequestSchema):
+    task = await TasksRepository().get_task_by_id(task_id=task_id)
+    if task:
+        return await TasksRepository().change_task_priority(task_id, task_update_data)
     else:
         raise HTTPException(
             status_code=409, detail=f"Task with such id:{task_id} doesn't exist"
