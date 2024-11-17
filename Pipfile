@@ -16,6 +16,10 @@ fastapi = "*"
 uvicorn = "*"
 pydantic = "*"
 werkzeug = "*"
+passlib = "*"
+pyjwt = "*"
+bcrypt = "*"
+python-multipart = "*"
 
 [dev-packages]
 

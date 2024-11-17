@@ -3,14 +3,17 @@ from datetime import datetime
 
 from sqlalchemy.future import select
 from sqlalchemy.exc import NoResultFound
+from passlib.context import CryptContext
 
-from settings.db.models import Users
-from settings.db.session_to_postgres import DBSessionManager
-from werkzeug.security import generate_password_hash
+from app.settings.db.models import Users
+from app.settings.db.session_to_postgres import DBSessionManager
 
-from schemas.users import UserUpdateRequestSchema
+from app.schemas.users import UserUpdateRequestSchema
 
-from settings.db.models import Ssubscriptions
+from app.settings.db.models import Ssubscriptions
+
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 class UsersRepository:
@@ -22,7 +25,7 @@ class UsersRepository:
     async def create_user(self, instance: dict):
         async with self.db_session_manager.get_session() as session:
             try:
-                hashed_password = generate_password_hash(instance.get("password"))
+                hashed_password = pwd_context.hash(instance.get("password"))
                 new_user = Users(
                     name=instance.get("name"),
                     username=instance.get("username"),
