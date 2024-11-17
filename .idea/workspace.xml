@@ -5,17 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f2f16778-225c-418f-8136-400f9d4dada6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/services/email.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/templates/change.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/static/templates/reset.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/routers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/routers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/schemas/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/settings/config_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings/config_settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,28 +34,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python.config_settings.executor": "Run",
-    "Python.env.executor": "Run",
-    "Python.main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "backend/reset__password",
-    "last_opened_file_path": "C:/Users/ben30/PycharmProjects/Task_Management-_System/app",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.config_settings.executor&quot;: &quot;Run&quot;,
+    &quot;Python.env.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;backend/reset__password&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ben30/PycharmProjects/Task_Management-_System/app&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ben30\PycharmProjects\Task_Management-_System\app" />
@@ -192,6 +182,12 @@
       <workItem from="1731698737122" duration="9696000" />
       <workItem from="1731738256385" duration="105000" />
       <workItem from="1731820477087" duration="4659000" />
+      <workItem from="1731842577726" duration="63000" />
+      <workItem from="1731843991251" duration="2000" />
+      <workItem from="1731845503144" duration="37000" />
+      <workItem from="1731873149330" duration="3000" />
+      <workItem from="1731873207753" duration="4000" />
+      <workItem from="1731873296191" duration="1756000" />
     </task>
     <servers />
   </component>
