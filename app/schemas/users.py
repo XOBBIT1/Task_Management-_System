@@ -1,6 +1,7 @@
 from typing import List, Optional
 
-from pydantic import BaseModel, EmailStr
+from fastapi import HTTPException
+from pydantic import BaseModel, EmailStr, validator, ValidationError
 
 
 class BaseUserSchema(BaseModel):
@@ -36,3 +37,26 @@ class UserUpdateRequestSchema(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class EmailSchema(BaseModel):
+    email: str
+    is_change: bool = False
+
+
+class ResetPasswordsSchema(BaseModel):
+    secure_code: str
+    password: str
+    confirm_password: str
+
+    @validator("confirm_password")
+    def passwords_match(cls, confirm_password, values):
+        if "password" in values and confirm_password != values["password"]:
+            raise HTTPException(status_code=401, detail="Passwords do not match")
+        return confirm_password
+
+    def validate_passwords(self):
+        try:
+            self.dict()
+        except ValidationError as e:
+            raise ValueError(str(e)) from e

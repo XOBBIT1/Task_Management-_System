@@ -4,32 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2f16778-225c-418f-8136-400f9d4dada6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/api/auth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/middlewares/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/middlewares/auth_middleware.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/repositories/auth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/schemas/auth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/auth.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Pipfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Pipfile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/routers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/routers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/schemas/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/users.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/settings/config_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings/config_settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/settings/db/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings/db/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/settings/db/session_to_postgres.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings/db/session_to_postgres.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-    </list>
+    <list default="true" id="f2f16778-225c-418f-8136-400f9d4dada6" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,8 +39,8 @@
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;backend/auth__system&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ben30/PycharmProjects/ms-auth&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;backend/reset__password&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ben30/PycharmProjects/Task_Management-_System/app&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -81,6 +56,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\ben30\PycharmProjects\Task_Management-_System\app" />
       <recent name="C:\Users\ben30\PycharmProjects\Task_Management-_System\app\settings\db" />
       <recent name="C:\Users\ben30\PycharmProjects\Task_Management-_System\app\settings" />
       <recent name="C:\Users\ben30\PycharmProjects\Task_Management-_System" />
@@ -204,6 +180,12 @@
       <workItem from="1731698737122" duration="9696000" />
       <workItem from="1731738256385" duration="105000" />
       <workItem from="1731820477087" duration="4659000" />
+      <workItem from="1731842577726" duration="63000" />
+      <workItem from="1731843991251" duration="2000" />
+      <workItem from="1731845503144" duration="37000" />
+      <workItem from="1731873149330" duration="3000" />
+      <workItem from="1731873207753" duration="4000" />
+      <workItem from="1731873296191" duration="2223000" />
     </task>
     <servers />
   </component>

@@ -1,3 +1,4 @@
+import logging
 import os
 
 import dotenv
@@ -9,6 +10,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 dotenv_file = os.path.join(BASE_DIR, ".env")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
+logger = logging.getLogger()
+
 
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
@@ -30,3 +33,8 @@ refresh_token_expire_days = os.environ["REFRESH_TOKEN_EXPIRE_DAYS"]
 TOKEN_TYPE: str = "Bearer"
 REFRESH_TOKEN_JWT_SUBJECT: str = 'refresh'
 ACCESS_TOKEN_JWT_SUBJECT: str = 'access'
+
+# email configuration
+email_host_user = os.environ["EMAIL_HOST_USER"]
+email_host_password = os.environ["EMAIL_HOST_PASSWORD"]
+email_host = os.environ["EMAIL_HOST"]

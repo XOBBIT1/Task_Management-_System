@@ -64,8 +64,8 @@ class UsersRepository:
         async with self.db_session_manager.get_session() as session:
             try:
                 query = select(Users).filter_by(id=user_id)
-                result = await session.execute(query)  # Асинхронный запрос
-                user = result.scalars().first()  # Получаем первый результат
+                result = await session.execute(query)
+                user = result.scalars().first()
                 return user
             except NoResultFound as ex:
                 logging.info(f"User not found: {ex}")
@@ -115,6 +115,8 @@ class UsersRepository:
                     user.name = user_update_data.name
                 if user_update_data.username is not None:
                     user.username = user_update_data.username
+                if user_update_data.password is not None:
+                    user.password = user_update_data.password
                 session.add(user)
                 await session.commit()
                 await session.refresh(user)
