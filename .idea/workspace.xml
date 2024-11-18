@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f2f16778-225c-418f-8136-400f9d4dada6" name="Changes" comment="" />
+    <list default="true" id="f2f16778-225c-418f-8136-400f9d4dada6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,7 +42,7 @@
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;backend/reset__password&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features/frontend&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/ben30/PycharmProjects/Task_Management-_System/app&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -185,7 +188,8 @@
       <workItem from="1731845503144" duration="37000" />
       <workItem from="1731873149330" duration="3000" />
       <workItem from="1731873207753" duration="4000" />
-      <workItem from="1731873296191" duration="2223000" />
+      <workItem from="1731873296191" duration="2776000" />
+      <workItem from="1731914197091" duration="310000" />
     </task>
     <servers />
   </component>
