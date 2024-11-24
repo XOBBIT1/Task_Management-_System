@@ -74,26 +74,6 @@ async def update_task_service(task_id, task_update_data: TaskUpdateRequestSchema
         )
 
 
-async def change_task_status_service(task_id, task_update_data: TaskUpdateRequestSchema):
-    task = await TasksRepository().get_task_by_id(task_id=task_id)
-    if task:
-        return await TasksRepository().change_task_status(task_id, task_update_data)
-    else:
-        raise HTTPException(
-            status_code=409, detail=f"Task with such id:{task_id} doesn't exist"
-        )
-
-
-async def change_task_priority_service(task_id, task_update_data: TaskUpdateRequestSchema):
-    task = await TasksRepository().get_task_by_id(task_id=task_id)
-    if task:
-        return await TasksRepository().change_task_priority(task_id, task_update_data)
-    else:
-        raise HTTPException(
-            status_code=409, detail=f"Task with such id:{task_id} doesn't exist"
-        )
-
-
 async def delete_task_service(task_id):
     user = await TasksRepository().get_task_by_id(task_id=task_id)
     if user:

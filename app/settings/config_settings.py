@@ -34,6 +34,7 @@ TOKEN_TYPE: str = "Bearer"
 REFRESH_TOKEN_JWT_SUBJECT: str = 'refresh'
 ACCESS_TOKEN_JWT_SUBJECT: str = 'access'
 
+
 # email configuration
 email_host_user = os.environ["EMAIL_HOST_USER"]
 email_host_password = os.environ["EMAIL_HOST_PASSWORD"]

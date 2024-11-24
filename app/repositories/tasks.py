@@ -112,38 +112,8 @@ class TasksRepository:
                     task.task_name = task_update_data.task_name
                 if task_update_data.task_descriptions is not None:
                     task.task_descriptions = task_update_data.task_descriptions
-                session.add(task)
-                await session.commit()
-                await session.refresh(task)
-                return task
-            except Exception as ex:
-                logging.error(f"Error updating user: {ex}")
-                return None
-
-    async def change_task_status(self, task_id: int, task_update_data: TaskUpdateRequestSchema):
-        async with self.db_session_manager.get_session() as session:
-            try:
-                task = await self.get_task_by_id(task_id)
-                if not task:
-                    logging.info(f"Task with id: {task_id} not found.")
-                    return None
                 if task_update_data.status is not None:
                     task.status = task_update_data.status
-                session.add(task)
-                await session.commit()
-                await session.refresh(task)
-                return task
-            except Exception as ex:
-                logging.error(f"Error updating user: {ex}")
-                return None
-
-    async def change_task_priority(self, task_id: int, task_update_data: TaskUpdateRequestSchema):
-        async with self.db_session_manager.get_session() as session:
-            try:
-                task = await self.get_task_by_id(task_id)
-                if not task:
-                    logging.info(f"Task with id: {task_id} not found.")
-                    return None
                 if task_update_data.priority is not None:
                     task.priority = task_update_data.priority
                 session.add(task)
