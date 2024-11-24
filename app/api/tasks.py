@@ -5,7 +5,7 @@ from fastapi import APIRouter, HTTPException
 from app.services import tasks
 from app.schemas.tasks import (CreateTasksSchema, CreateTasksResponseSchema,
                                GetTaskResponseSchema, GetTasksResponseSchema, SubscribeOnTasksSchema,
-                               TaskUpdateRequestSchema, ChangeTaskStatusSchema, ChangeTaskPrioritySchema)
+                               TaskUpdateRequestSchema)
 
 from app.schemas.users import GetSubscribersResponseSchema
 
@@ -52,24 +52,6 @@ async def get_task_by_name_endpoint(task_name: str):
                     response_model=GetTaskResponseSchema)
 async def patch_task_endpoint(task_id: int, task_update: TaskUpdateRequestSchema):
     updated_task = await tasks.update_task_service(task_id, task_update)
-    if not updated_task:
-        raise HTTPException(status_code=404, detail="Task not found or update failed")
-    return updated_task
-
-
-@tasks_routes.patch("/change_task_status/{task_id}/",
-                    response_model=GetTaskResponseSchema)
-async def change_task_status_endpoint(task_id: int, task_update: ChangeTaskStatusSchema):
-    updated_task = await tasks.change_task_status_service(task_id, task_update)
-    if not updated_task:
-        raise HTTPException(status_code=404, detail="Task not found or update failed")
-    return updated_task
-
-
-@tasks_routes.patch("/change_task_priority/{task_id}/",
-                    response_model=GetTaskResponseSchema)
-async def change_task_priority_endpoint(task_id: int, task_update: ChangeTaskPrioritySchema):
-    updated_task = await tasks.change_task_priority_service(task_id, task_update)
     if not updated_task:
         raise HTTPException(status_code=404, detail="Task not found or update failed")
     return updated_task

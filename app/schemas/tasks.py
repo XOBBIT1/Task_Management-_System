@@ -40,6 +40,8 @@ class SubscribeOnTasksSchema(BaseModel):
 class TaskUpdateRequestSchema(BaseModel):
     task_name: Optional[str] = None
     task_descriptions: Optional[str] = None
+    status: Optional[TaskStatus] = None
+    priority: Optional[TaskPriority] = None
 
     class Config:
         from_attributes = True

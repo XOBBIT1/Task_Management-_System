@@ -8,4 +8,4 @@ api_router = APIRouter(prefix='/api')
 
 api_router.include_router(auth_routes, prefix='/auth', tags=['auth'])
 api_router.include_router(user_routes, prefix='/protected/users', tags=['users'])
-api_router.include_router(tasks_routes, prefix='', tags=['tasks'])
+api_router.include_router(tasks_routes, prefix='/protected/tasks', tags=['tasks'])
