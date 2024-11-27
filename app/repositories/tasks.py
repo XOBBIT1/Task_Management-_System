@@ -17,14 +17,14 @@ class TasksRepository:
         self.db_session_manager = DBSessionManager()
         super().__init__()
 
-    async def create_task(self, instance: dict):
+    async def create_task(self, instance: dict, creator_id: int):
         async with self.db_session_manager.get_session() as session:
             try:
                 new_task = Tasks(
                     task_name=instance.get("task_name"),
                     task_descriptions=instance.get("task_descriptions"),
                     status=instance.get("status"),
-                    creator_id=instance.get("creator_id"),
+                    creator_id=creator_id,
                     created_at=datetime.utcnow()
                 )
                 session.add(new_task)
@@ -35,12 +35,13 @@ class TasksRepository:
                 logging.info(f"Failed to create user: {e}")
                 await session.rollback()  # Откат при ошибке
 
-    async def subscribe_on_task(self, data):
+    async def subscribe_on_task(self, task_id, sub_id: int):
         async with self.db_session_manager.get_session() as session:
             try:
+                print(f"__________{task_id, sub_id}__________")
                 subscription = insert(Ssubscriptions).values(
-                    user_id=data.user_id,
-                    task_id=data.task_id
+                    user_id=sub_id,
+                    task_id=task_id
                 )
                 await session.execute(subscription)
                 await session.commit()

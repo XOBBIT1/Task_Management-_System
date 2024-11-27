@@ -8,6 +8,16 @@ from app.schemas.users import UserUpdateRequestSchema
 from app.repositories.tasks import TasksRepository
 
 
+async def get_by_id_service(user_id: int):
+    user = await UsersRepository().get_user_by_id(user_id=user_id)
+    if user:
+        return user
+    else:
+        raise HTTPException(
+            status_code=409, detail=f"User with such id:{user_id} doesn't exist"
+        )
+
+
 async def get_by_username_service(username):
     user = await UsersRepository().get_user_by_username(username=username)
     if user:

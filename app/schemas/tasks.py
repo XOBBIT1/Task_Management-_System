@@ -12,8 +12,16 @@ class BaseTasksSchema(BaseModel):
     priority: TaskPriority
 
 
+class UserTasksSchema(BaseModel):
+    id: int
+    task_name: str
+    task_descriptions: str
+    status: TaskStatus
+    priority: TaskPriority
+
+
 class CreateTasksSchema(BaseTasksSchema):
-    creator_id: int
+    ...
 
 
 class CreateTasksResponseSchema(BaseTasksSchema):
@@ -29,11 +37,10 @@ class GetTasksResponseSchema(BaseModel):
 
 
 class GetUerTasksResponseSchema(BaseModel):
-    tasks: List[BaseTasksSchema]
+    tasks: List[UserTasksSchema]
 
 
 class SubscribeOnTasksSchema(BaseModel):
-    user_id: int
     task_id: int
 
 

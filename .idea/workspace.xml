@@ -6,16 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="f2f16778-225c-418f-8136-400f9d4dada6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/routers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/routers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/api/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/users.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/task-management-app" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/task-management-app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/task-management-app/src/components/EditTask.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/task-management-app/src/components/EditTask.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/middlewares/auth_middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/middlewares/auth_middleware.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/repositories/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/users.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/schemas/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/auth.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/settings/config_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings/config_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/users.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +33,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -206,7 +208,10 @@
       <workItem from="1732269162231" duration="144000" />
       <workItem from="1732271267000" duration="2211000" />
       <workItem from="1732394304805" duration="264000" />
-      <workItem from="1732433468252" duration="8112000" />
+      <workItem from="1732433468252" duration="9682000" />
+      <workItem from="1732515772398" duration="932000" />
+      <workItem from="1732525911376" duration="7750000" />
+      <workItem from="1732696205757" duration="5699000" />
     </task>
     <servers />
   </component>
