@@ -44,6 +44,8 @@ class ApiKeyMiddleware(BaseHTTPMiddleware):
         '/openapi.json',
         '/api/auth/login/',
         '/api/auth/registration_user/',
+        '/api/protected/users/forgot_password/',
+        '/api/protected/users/reset_password/',
     ]
 
     async def dispatch(self, request: Request, call_next: tp.Any) -> tp.Any:

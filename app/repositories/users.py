@@ -116,8 +116,8 @@ class UsersRepository:
                     user.name = user_update_data.name
                 if user_update_data.username is not None:
                     user.username = user_update_data.username
-                if user_update_data.password is not None:
-                    user.password = user_update_data.password
+                if user_update_data.email is not None:
+                    user.emial = user_update_data.email
                 session.add(user)
                 await session.commit()
                 await session.refresh(user)
