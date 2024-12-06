@@ -6,16 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="f2f16778-225c-418f-8136-400f9d4dada6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/routers.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/routers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/tasks.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/task-management-app" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/task-management-app" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/frontend/task-management-app/src/components/EditTask.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/frontend/task-management-app/src/components/EditTask.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/middlewares/auth_middleware.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/middlewares/auth_middleware.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/schemas/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/schemas/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/tasks.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/settings/config_settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/settings/config_settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/users.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/reset_passwords.json" beforeDir="false" afterPath="$PROJECT_DIR$/reset_passwords.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +27,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -44,28 +40,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.config_settings.executor&quot;: &quot;Run&quot;,
-    &quot;Python.env.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;features/frontend&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ben30/PycharmProjects/For_stading&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.config_settings.executor": "Run",
+    "Python.env.executor": "Run",
+    "Python.main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "features/frontend",
+    "last_opened_file_path": "C:/Users/ben30/PycharmProjects/Task_Management-_System/app",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\ben30\\PycharmProjects\\Task_Management-_System\\app\\frontend\\task-management-app\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ben30\PycharmProjects\Task_Management-_System\app" />
@@ -206,7 +203,23 @@
       <workItem from="1732269162231" duration="144000" />
       <workItem from="1732271267000" duration="2211000" />
       <workItem from="1732394304805" duration="264000" />
-      <workItem from="1732433468252" duration="8112000" />
+      <workItem from="1732433468252" duration="9682000" />
+      <workItem from="1732515772398" duration="932000" />
+      <workItem from="1732525911376" duration="7750000" />
+      <workItem from="1732696205757" duration="7583000" />
+      <workItem from="1732731176753" duration="623000" />
+      <workItem from="1732817809942" duration="1974000" />
+      <workItem from="1732874277576" duration="2171000" />
+      <workItem from="1732963116807" duration="3684000" />
+      <workItem from="1733048429956" duration="696000" />
+      <workItem from="1733162050530" duration="610000" />
+      <workItem from="1733227738420" duration="1469000" />
+      <workItem from="1733292916088" duration="8103000" />
+      <workItem from="1733321679140" duration="465000" />
+      <workItem from="1733322662878" duration="597000" />
+      <workItem from="1733379928028" duration="2282000" />
+      <workItem from="1733389691135" duration="28000" />
+      <workItem from="1733494683857" duration="2631000" />
     </task>
     <servers />
   </component>

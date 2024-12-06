@@ -17,6 +17,13 @@ async def get_subscriptions_endpoint(request: Request):
     return {"tasks": user_tasks}
 
 
+@user_routes.get("/get_user_by_id/", status_code=201,
+                 response_model=GetUserResponseSchema)
+async def get_user_by_id_endpoint(request: Request):
+    user = await users.get_by_id_service(user_id=request.state.user_id)
+    return user
+
+
 @user_routes.get("/get_user_by_name/{name}/", status_code=201,
                  response_model=GetUsersUsernameResponseSchema)
 async def get_user_by_name_endpoint(name: str) -> tp.Dict[str, tp.Any]:

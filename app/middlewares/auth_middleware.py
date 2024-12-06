@@ -16,19 +16,14 @@ async def authenticate(request: Request) -> tp.Tuple[bool, tp.Optional[str]]:
     auth_header = request.headers.get("Authorization", "")
     token_components = auth_header.split(" ")
 
-    # Проверяем формат заголовка Authorization
-    if len(token_components) != 2 or token_components[0] != config_settings.TOKEN_TYPE:
-        return False, "Invalid Authorization header format"
-
     access_token = token_components[1]
-    print(access_token)
 
     try:
         # Декодируем токен и проверяем его
         payload = jwt.decode(
             access_token, config_settings.token_secret_key, algorithms=[config_settings.algorithm]
         )
-        if payload.get("sub") != config_settings.access_token_expire_minutes:
+        if payload.get("sub") != config_settings.ACCESS_TOKEN_JWT_SUBJECT:
             return False, "Invalid token subject"
 
         # Устанавливаем user_id
@@ -45,17 +40,21 @@ class ApiKeyMiddleware(BaseHTTPMiddleware):
     Middleware для проверки токенов доступа на определенных маршрутах.
     """
     authorize_paths = [
-        'api/auth/login/',
-        'api/auth/registration_user/'
+        '/docs',
+        '/openapi.json',
+        '/api/auth/login/',
+        '/api/auth/registration_user/',
+        '/api/protected/users/forgot_password/',
+        '/api/protected/users/reset_password/',
     ]
 
     async def dispatch(self, request: Request, call_next: tp.Any) -> tp.Any:
-        if request.url.path in self.authorize_paths and request.method != "OPTIONS":
+        print(request.url.path)
+        if request.url.path not in self.authorize_paths and request.method != "OPTIONS":
             is_valid, error_message = await authenticate(request)
             if not is_valid:
                 return JSONResponse(
                     content={"error": error_message}, status_code=401
                 )
-
         request.state.user_id = getattr(request.state, "user_id", None)
         return await call_next(request)

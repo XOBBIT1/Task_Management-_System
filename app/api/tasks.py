@@ -1,11 +1,10 @@
 import typing as tp
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 
 from app.services import tasks
 from app.schemas.tasks import (CreateTasksSchema, CreateTasksResponseSchema,
-                               GetTaskResponseSchema, GetTasksResponseSchema, SubscribeOnTasksSchema,
-                               TaskUpdateRequestSchema)
+                               GetTaskResponseSchema, GetTasksResponseSchema, TaskUpdateRequestSchema)
 
 from app.schemas.users import GetSubscribersResponseSchema
 
@@ -13,36 +12,36 @@ tasks_routes = APIRouter()
 
 
 @tasks_routes.post("/create_task/", status_code=201, response_model=CreateTasksResponseSchema)
-async def create_task_endpoint(data: CreateTasksSchema) -> tp.Dict[str, tp.Any]:
-    task = await tasks.create_task_service(task=data)
+async def create_task_endpoint(data: CreateTasksSchema, request: Request) -> tp.Dict[str, tp.Any]:
+    task = await tasks.create_task_service(task=data, creator_id=request.state.user_id)
     return task
 
 
-@tasks_routes.post("/subscribe_on_task/", status_code=201)
-async def subscribe_on_task_endpoint(data: SubscribeOnTasksSchema):
-    await tasks.subscribe_on_task_service(data=data)
+@tasks_routes.post("/subscribe_on_task/{task_id}/", status_code=201)
+async def subscribe_on_task_endpoint(task_id: int, request: Request):
+    await tasks.subscribe_on_task_service(task_id=task_id, sub_id=request.state.user_id)
     return {"detail": "You have successfully subscribed to tasks"}
 
 
-@tasks_routes.get("/get_task_by_id/{task_id}/", status_code=201, response_model=GetTaskResponseSchema)
+@tasks_routes.get("/get_task_by_id/{task_id}/", status_code=200, response_model=GetTaskResponseSchema)
 async def get_task_by_id_endpoint(task_id: int):
     user = await tasks.get_by_id_service(task_id=task_id)
     return user
 
 
-@tasks_routes.get("/get_all_tasks/", status_code=201, response_model=GetTasksResponseSchema)
+@tasks_routes.get("/get_all_tasks/", status_code=200, response_model=GetTasksResponseSchema)
 async def get_all_tasks_endpoint():
     tasks_list = await tasks.get_all_tasks_service()
     return {"tasks": tasks_list}
 
 
-@tasks_routes.get("/get_all_subscribers/", status_code=201, response_model=GetSubscribersResponseSchema)
+@tasks_routes.get("/get_all_subscribers/{task_id}/", status_code=200, response_model=GetSubscribersResponseSchema)
 async def get_all_subscribers_endpoint(task_id: int):
     subscribers = await tasks.get_all_subscribers_service(task_id=task_id)
     return {"users": subscribers}
 
 
-@tasks_routes.get("/get_task_by_name/{name}/", status_code=201, response_model=GetTaskResponseSchema)
+@tasks_routes.get("/get_task_by_name/{name}/", status_code=200, response_model=GetTaskResponseSchema)
 async def get_task_by_name_endpoint(task_name: str):
     task = await tasks.get_by_name_service(task_name=task_name)
     return task

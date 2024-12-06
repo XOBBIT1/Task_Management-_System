@@ -44,14 +44,6 @@ async def login_user_service(data) -> JSONResponse:
     }
     response_content = RetrieveLogin(user=user_dict, **tokens.dict())
     response = JSONResponse(content=response_content.dict())
-    response.set_cookie(
-        key="access_token",
-        value=tokens.access_token,
-        httponly=True,  # Для защиты от XSS атак
-        max_age=3600,  # Время жизни cookie (в секундах)
-        expires=3600,  # Время истечения срока
-        secure=True,  # Используйте True только в HTTPS
-    )
     return response
 
 

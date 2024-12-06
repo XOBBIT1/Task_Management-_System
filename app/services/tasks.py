@@ -5,13 +5,13 @@ from app.repositories.users import UsersRepository
 from app.schemas.tasks import TaskUpdateRequestSchema
 
 
-async def create_task_service(task) -> dict:
+async def create_task_service(task, creator_id: int) -> dict:
     task_username = await TasksRepository().get_task_by_task_name(task_name=task.task_name)
     if task_username:
         raise HTTPException(
             status_code=409, detail="User with such task_username already exists"
         )
-    return await TasksRepository().create_task(instance=task.dict())
+    return await TasksRepository().create_task(instance=task.dict(), creator_id=creator_id)
 
 
 async def get_all_tasks_service():
@@ -54,13 +54,13 @@ async def get_by_id_service(task_id: int):
         )
 
 
-async def subscribe_on_task_service(data) -> dict:
-    task = await TasksRepository().get_task_by_id(task_id=data.task_id)
+async def subscribe_on_task_service(task_id, sub_id) -> dict:
+    task = await TasksRepository().get_task_by_id(task_id=task_id)
     if task:
-        return await TasksRepository().subscribe_on_task(data=data)
+        return await TasksRepository().subscribe_on_task(task_id=task_id, sub_id=sub_id)
     else:
         raise HTTPException(
-            status_code=409, detail=f"Task with such id: {data.task_id} doesn't exist"
+            status_code=409, detail=f"Task with such id: {task_id} doesn't exist"
         )
 
 

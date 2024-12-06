@@ -12,7 +12,6 @@ from app.schemas.users import UserUpdateRequestSchema
 
 from app.settings.db.models import Ssubscriptions
 
-
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
@@ -51,9 +50,11 @@ class UsersRepository:
                 for subscriber in subscribers:
                     task = await repository.get_task_by_id(subscriber)
                     tasks.append({
+                        "id": task.id,
                         "task_name": task.task_name,
                         "task_descriptions": task.task_descriptions,
-                        "status": task.status
+                        "status": task.status,
+                        "priority": task.priority
                     })
                 return tasks
             except NoResultFound as ex:
@@ -115,8 +116,8 @@ class UsersRepository:
                     user.name = user_update_data.name
                 if user_update_data.username is not None:
                     user.username = user_update_data.username
-                if user_update_data.password is not None:
-                    user.password = user_update_data.password
+                if user_update_data.email is not None:
+                    user.emial = user_update_data.email
                 session.add(user)
                 await session.commit()
                 await session.refresh(user)
